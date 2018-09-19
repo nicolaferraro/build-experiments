@@ -1,0 +1,4 @@
+FROM test-a
+
+ADD libs-b2 /libs
+RUN /libs/align.sh

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "Starting standard assembly..."
+
+/usr/local/s2i/assemble
+rc=$?
+
+echo "Removing unneeded dependencies..."
+rm -f /deployments/lib-1.jar
+
+exit $rc

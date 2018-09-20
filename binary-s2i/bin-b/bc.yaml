@@ -14,5 +14,5 @@ spec:
     sourceStrategy:
       from:
         kind: DockerImage
-        name: 172.30.1.1:5000/test/bin-a:latest
+        name: 172.30.1.1:5000/xx/bin-a:latest
     type: Source

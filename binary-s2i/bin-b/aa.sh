@@ -1,16 +1,9 @@
 #!/bin/sh
 
-echo "Starting standard assembly..."
-
-/usr/local/s2i/assemble
-rc=$?
-
-echo "Removing unneeded dependencies..."
-
-pushd .
-cd /deployments
-
 libs=$(cat libs)
+
+#pushd .
+# cd /deployments
 
 for jar in $(ls | grep -e ".*\.jar$"); do
     present=false
@@ -21,12 +14,5 @@ for jar in $(ls | grep -e ".*\.jar$"); do
     done
     if [ "$present" == "false" ]; then
         echo "rm $jar"
-        rm $jar
     fi
 done
-
-popd
-
-echo "Dependencies removed"
-
-exit $rc
